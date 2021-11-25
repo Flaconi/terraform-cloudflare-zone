@@ -1,11 +1,10 @@
-# terraform-module-template
-Template for Terraform modules
+# terraform-cloudflare-zone
 
-<!-- Uncomment and replace with your module name
-[![lint](https://github.com/flaconi/<MODULENAME>/workflows/lint/badge.svg)](https://github.com/flaconi/<MODULENAME>/actions?query=workflow%3Alint)
-[![test](https://github.com/flaconi/<MODULENAME>/workflows/test/badge.svg)](https://github.com/flaconi/<MODULENAME>/actions?query=workflow%3Atest)
-[![Tag](https://img.shields.io/github/tag/flaconi/<MODULENAME>.svg)](https://github.com/flaconi/<MODULENAME>/releases)
--->
+Terraform modules to create Cloudflare Hosted zone
+
+[![lint](https://github.com/flaconi/terraform-cloudflare-zone/workflows/lint/badge.svg)](https://github.com/flaconi/terraform-cloudflare-zone/actions?query=workflow%3Alint)
+[![test](https://github.com/flaconi/terraform-cloudflare-zone/workflows/test/badge.svg)](https://github.com/flaconi/terraform-cloudflare-zone/actions?query=workflow%3Atest)
+[![Tag](https://img.shields.io/github/tag/flaconi/terraform-cloudflare-zone.svg)](https://github.com/flaconi/terraform-cloudflare-zone/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <!-- TFDOCS_HEADER_START -->
@@ -16,7 +15,9 @@ Template for Terraform modules
 <!-- TFDOCS_PROVIDER_START -->
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | ~> 3.2 |
 
 <!-- TFDOCS_PROVIDER_END -->
 
@@ -26,13 +27,26 @@ No providers.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 3.2 |
 
 <!-- TFDOCS_REQUIREMENTS_END -->
 
 <!-- TFDOCS_INPUTS_START -->
 ## Required Inputs
 
-No required inputs.
+The following input variables are required:
+
+### <a name="input_api_token"></a> [api\_token](#input\_api\_token)
+
+Description: The Cloudflare API token.
+
+Type: `string`
+
+### <a name="input_domain"></a> [domain](#input\_domain)
+
+Description: Cloudflare domain name to create
+
+Type: `string`
 
 ## Optional Inputs
 
@@ -43,7 +57,11 @@ No optional inputs.
 <!-- TFDOCS_OUTPUTS_START -->
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_id"></a> [id](#output\_id) | Cloudflare Zone ID |
+| <a name="output_name_servers"></a> [name\_servers](#output\_name\_servers) | Cloudflare Zone Name Servers |
+| <a name="output_status"></a> [status](#output\_status) | Cloudflare Zone Status |
 
 <!-- TFDOCS_OUTPUTS_END -->
 
