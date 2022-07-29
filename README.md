@@ -48,6 +48,12 @@ Description: Cloudflare domain name to create
 
 Type: `string`
 
+### <a name="input_account_id"></a> [account\_id](#input\_account\_id)
+
+Description: Account ID to manage the zone resource in.
+
+Type: `string`
+
 ## Optional Inputs
 
 No optional inputs.
