@@ -1,3 +1,4 @@
 resource "cloudflare_zone" "this" {
-  zone = var.domain
+  account_id = var.account_id
+  zone       = var.domain
 }
