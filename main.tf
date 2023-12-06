@@ -8,7 +8,8 @@ resource "cloudflare_zone_settings_override" "this" {
   settings {
     brotli         = var.settings_override.brotli
     early_hints    = var.settings_override.early_hints
-    http2          = var.settings_override.http2
-    image_resizing = var.settings_override.image_resizing
+    # Some settings are not available for "free" commercial plan
+    http2          = cloudflare_zone.this.plan != "free" ? var.settings_override.http2 : null
+    image_resizing = cloudflare_zone.this.plan != "free" ? var.settings_override.image_resizing : null
   }
 }
