@@ -13,6 +13,11 @@ output "status" {
   value       = cloudflare_zone.this.status
 }
 
+output "plan" {
+  description = "Cloudflare Zone commercial plan"
+  value       = cloudflare_zone.this.plan
+}
+
 output "settings" {
   description = "Cloudflare Zone Settings"
   value       = cloudflare_zone_settings_override.this
