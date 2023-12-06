@@ -54,6 +54,10 @@ Description: Account ID to manage the zone resource in.
 
 Type: `string`
 
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
 ### <a name="input_settings_override"></a> [settings\_override](#input\_settings\_override)
 
 Description: Various values which customizes Cloudflare zone settings
@@ -69,9 +73,7 @@ object({
   })
 ```
 
-## Optional Inputs
-
-No optional inputs.
+Default: `{}`
 
 <!-- TFDOCS_INPUTS_END -->
 

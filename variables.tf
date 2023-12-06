@@ -21,4 +21,5 @@ variable "settings_override" {
     http2          = optional(string)
     image_resizing = optional(string)
   })
+  default = {}
 }
