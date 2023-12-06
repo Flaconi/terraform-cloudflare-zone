@@ -17,7 +17,7 @@ Terraform modules to create Cloudflare Hosted zone
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | ~> 3.2 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | ~> 4.0 |
 
 <!-- TFDOCS_PROVIDER_END -->
 
@@ -26,8 +26,8 @@ Terraform modules to create Cloudflare Hosted zone
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 3.2 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 4.0 |
 
 <!-- TFDOCS_REQUIREMENTS_END -->
 
@@ -56,7 +56,24 @@ Type: `string`
 
 ## Optional Inputs
 
-No optional inputs.
+The following input variables are optional (have default values):
+
+### <a name="input_settings_override"></a> [settings\_override](#input\_settings\_override)
+
+Description: Various values which customizes Cloudflare zone settings
+
+Type:
+
+```hcl
+object({
+    brotli         = optional(string)
+    early_hints    = optional(string)
+    http2          = optional(string)
+    image_resizing = optional(string)
+  })
+```
+
+Default: `{}`
 
 <!-- TFDOCS_INPUTS_END -->
 
@@ -67,6 +84,7 @@ No optional inputs.
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | Cloudflare Zone ID |
 | <a name="output_name_servers"></a> [name\_servers](#output\_name\_servers) | Cloudflare Zone Name Servers |
+| <a name="output_settings"></a> [settings](#output\_settings) | Cloudflare Zone Settings |
 | <a name="output_status"></a> [status](#output\_status) | Cloudflare Zone Status |
 
 <!-- TFDOCS_OUTPUTS_END -->
