@@ -60,7 +60,7 @@ The following input variables are optional (have default values):
 
 ### <a name="input_settings_override"></a> [settings\_override](#input\_settings\_override)
 
-Description: Various values which customizes Cloudflare zone settings
+Description: Various values which customizes Cloudflare zone settings. Note that some settings are only available on certain plans.
 
 Type:
 
@@ -148,10 +148,8 @@ Default: `{}`
 | Name | Description |
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | Cloudflare Zone ID |
-| <a name="output_initial_settings"></a> [initial\_settings](#output\_initial\_settings) | Cloudflare Zone Initial Settings |
 | <a name="output_name_servers"></a> [name\_servers](#output\_name\_servers) | Cloudflare Zone Name Servers |
 | <a name="output_plan"></a> [plan](#output\_plan) | Cloudflare Zone commercial plan |
-| <a name="output_readonly_settings"></a> [readonly\_settings](#output\_readonly\_settings) | Cloudflare Zone Readonly Settings |
 | <a name="output_settings"></a> [settings](#output\_settings) | Cloudflare Zone Settings |
 | <a name="output_status"></a> [status](#output\_status) | Cloudflare Zone Status |
 
