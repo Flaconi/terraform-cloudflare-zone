@@ -13,7 +13,7 @@ variable "account_id" {
   type        = string
 }
 
-# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zone_settings_override#nested-schema-for-settings
+# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zone_settings_override
 variable "settings_override" {
   description = "Various values which customizes Cloudflare zone settings. Note that some settings are only available on certain plans."
   type = object({
@@ -88,4 +88,18 @@ variable "settings_override" {
     zero_rtt                    = optional(string)
   })
   default = {}
+}
+
+# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset
+variable "http_config_settings" {
+  description = "Cloudflare ruleset for phase http_config_settings. It override the zone settings per request by defining an expression."
+  type = list(object({
+    action_parameters = object({
+      polish = optional(string)
+    })
+    description = string
+    enabled     = optional(bool, true)
+    expression  = string
+  }))
+  default = []
 }

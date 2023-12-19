@@ -140,6 +140,25 @@ object({
 
 Default: `{}`
 
+### <a name="input_http_config_settings"></a> [http\_config\_settings](#input\_http\_config\_settings)
+
+Description: Cloudflare ruleset for phase http\_config\_settings. It override the zone settings per request by defining an expression.
+
+Type:
+
+```hcl
+list(object({
+    action_parameters = object({
+      polish = optional(string)
+    })
+    description = string
+    enabled     = optional(bool, true)
+    expression  = string
+  }))
+```
+
+Default: `[]`
+
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->

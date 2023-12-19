@@ -89,3 +89,27 @@ resource "cloudflare_zone_settings_override" "this" {
     }
   }
 }
+
+resource "cloudflare_ruleset" "http_config_settings" {
+  count = length(var.http_config_settings) > 0 ? 1 : 0
+
+  zone_id = cloudflare_zone.this.id
+  kind    = "zone"
+  name    = "Default ruleset for http_config_settings phase"
+  phase   = "http_config_settings"
+
+  dynamic "rules" {
+    for_each = var.http_config_settings
+
+    content {
+      action      = "set_config"
+      description = rules.value.description
+      enabled     = rules.value.enabled
+      expression  = rules.value.expression
+
+      action_parameters {
+        polish = rules.value.action_parameters.polish
+      }
+    }
+  }
+}
