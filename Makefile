@@ -235,7 +235,7 @@ _lint-fmt: _pull-tf
 	@echo "# *.tf files"
 	@echo "------------------------------------------------------------"
 	@if docker run $$(tty -s && echo "-it" || echo) --rm -v "$(CURRENT_DIR):/t:ro" --workdir "/t" hashicorp/terraform:$(TF_VERSION) \
-		fmt -recursive -check=true -diff=true -write=false -list=true .; then \
+		fmt -recursive -check=true -diff=true -write=true -list=true .; then \
 		echo "OK"; \
 	else \
 		echo "Failed"; \
@@ -246,7 +246,7 @@ _lint-fmt: _pull-tf
 	@echo "# *.tfvars files"
 	@echo "------------------------------------------------------------"
 	@if docker run $$(tty -s && echo "-it" || echo) --rm --entrypoint=/bin/sh -v "$(CURRENT_DIR):/t:ro" --workdir "/t" hashicorp/terraform:$(TF_VERSION) \
-		-c "find . -name '*.tfvars' -type f -print0 | xargs -0 -n1 terraform fmt -check=true -write=false -diff=true -list=true"; then \
+		-c "find . -name '*.tfvars' -type f -print0 | xargs -0 -n1 terraform fmt -check=true -write=true -diff=true -list=true"; then \
 		echo "OK"; \
 	else \
 		echo "Failed"; \
