@@ -159,6 +159,21 @@ list(object({
 
 Default: `[]`
 
+### <a name="input_bot_management"></a> [bot\_management](#input\_bot\_management)
+
+Description: Cloudflare bot management configuration.
+
+Type:
+
+```hcl
+object({
+    auto_update_model = optional(bool, false)
+    enable_js         = optional(bool, false)
+  })
+```
+
+Default: `{}`
+
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->
