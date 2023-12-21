@@ -113,3 +113,9 @@ resource "cloudflare_ruleset" "http_config_settings" {
     }
   }
 }
+
+resource "cloudflare_bot_management" "this" {
+  zone_id           = cloudflare_zone.this.id
+  auto_update_model = var.bot_management.auto_update_model
+  enable_js         = var.bot_management.enable_js
+}

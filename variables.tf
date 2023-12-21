@@ -103,3 +103,13 @@ variable "http_config_settings" {
   }))
   default = []
 }
+
+# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/bot_management
+variable "bot_management" {
+  description = "Cloudflare bot management configuration."
+  type = object({
+    auto_update_model = optional(bool, false)
+    enable_js         = optional(bool, false)
+  })
+  default = {}
+}
