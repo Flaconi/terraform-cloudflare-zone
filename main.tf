@@ -90,6 +90,12 @@ resource "cloudflare_zone_settings_override" "this" {
   }
 }
 
+resource "cloudflare_bot_management" "this" {
+  zone_id           = cloudflare_zone.this.id
+  auto_update_model = var.bot_management.auto_update_model
+  enable_js         = var.bot_management.enable_js
+}
+
 resource "cloudflare_ruleset" "http_config_settings" {
   count = length(var.http_config_settings) > 0 ? 1 : 0
 
@@ -114,8 +120,28 @@ resource "cloudflare_ruleset" "http_config_settings" {
   }
 }
 
-resource "cloudflare_bot_management" "this" {
-  zone_id           = cloudflare_zone.this.id
-  auto_update_model = var.bot_management.auto_update_model
-  enable_js         = var.bot_management.enable_js
+resource "cloudflare_ruleset" "http_log_custom_fields" {
+  count = length(var.http_log_custom_fields) > 0 ? 1 : 0
+
+  zone_id = cloudflare_zone.this.id
+  kind    = "zone"
+  name    = "Default ruleset for http_log_custom_fields phase"
+  phase   = "http_log_custom_fields"
+
+  dynamic "rules" {
+    for_each = var.http_log_custom_fields
+
+    content {
+      action      = "log_custom_field"
+      description = rules.value.description
+      enabled     = rules.value.enabled
+      expression  = rules.value.expression
+
+      action_parameters {
+        request_fields  = rules.value.action_parameters.request_fields
+        response_fields = rules.value.action_parameters.response_fields
+        cookie_fields   = rules.value.action_parameters.cookie_fields
+      }
+    }
+  }
 }

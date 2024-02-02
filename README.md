@@ -140,6 +140,21 @@ object({
 
 Default: `{}`
 
+### <a name="input_bot_management"></a> [bot\_management](#input\_bot\_management)
+
+Description: Cloudflare bot management configuration.
+
+Type:
+
+```hcl
+object({
+    auto_update_model = optional(bool, false)
+    enable_js         = optional(bool, false)
+  })
+```
+
+Default: `{}`
+
 ### <a name="input_http_config_settings"></a> [http\_config\_settings](#input\_http\_config\_settings)
 
 Description: Cloudflare ruleset for phase http\_config\_settings. It override the zone settings per request by defining an expression.
@@ -159,20 +174,26 @@ list(object({
 
 Default: `[]`
 
-### <a name="input_bot_management"></a> [bot\_management](#input\_bot\_management)
+### <a name="input_http_log_custom_fields"></a> [http\_log\_custom\_fields](#input\_http\_log\_custom\_fields)
 
-Description: Cloudflare bot management configuration.
+Description: Cloudflare ruleset for phase http\_log\_custom\_fields.
 
 Type:
 
 ```hcl
-object({
-    auto_update_model = optional(bool, false)
-    enable_js         = optional(bool, false)
-  })
+list(object({
+    action_parameters = object({
+      request_fields  = optional(list(string))
+      response_fields = optional(list(string))
+      cookie_fields   = optional(list(string))
+    })
+    description = string
+    enabled     = optional(bool, true)
+    expression  = string
+  }))
 ```
 
-Default: `{}`
+Default: `[]`
 
 <!-- TFDOCS_INPUTS_END -->
 
