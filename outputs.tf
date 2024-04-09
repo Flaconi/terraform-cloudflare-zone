@@ -1,3 +1,8 @@
+output "account_id" {
+  description = "Cloudflare Account ID"
+  value       = data.cloudflare_accounts.this.accounts[0].id
+}
+
 output "id" {
   description = "Cloudflare Zone ID"
   value       = cloudflare_zone.this.id

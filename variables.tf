@@ -3,13 +3,13 @@ variable "api_token" {
   type        = string
 }
 
-variable "domain" {
-  description = "Cloudflare domain name to create"
+variable "account_name" {
+  description = "Account Name to manage the zone resource in. `Account Settings:Read` permission is required."
   type        = string
 }
 
-variable "account_id" {
-  description = "Account ID to manage the zone resource in."
+variable "domain" {
+  description = "Cloudflare domain name to create"
   type        = string
 }
 

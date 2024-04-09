@@ -42,15 +42,15 @@ Description: The Cloudflare API token.
 
 Type: `string`
 
-### <a name="input_domain"></a> [domain](#input\_domain)
+### <a name="input_account_name"></a> [account\_name](#input\_account\_name)
 
-Description: Cloudflare domain name to create
+Description: Account Name to manage the zone resource in. `Account Settings:Read` permission is required.
 
 Type: `string`
 
-### <a name="input_account_id"></a> [account\_id](#input\_account\_id)
+### <a name="input_domain"></a> [domain](#input\_domain)
 
-Description: Account ID to manage the zone resource in.
+Description: Cloudflare domain name to create
 
 Type: `string`
 
@@ -202,6 +202,7 @@ Default: `[]`
 
 | Name | Description |
 |------|-------------|
+| <a name="output_account_id"></a> [account\_id](#output\_account\_id) | Cloudflare Account ID |
 | <a name="output_id"></a> [id](#output\_id) | Cloudflare Zone ID |
 | <a name="output_name_servers"></a> [name\_servers](#output\_name\_servers) | Cloudflare Zone Name Servers |
 | <a name="output_plan"></a> [plan](#output\_plan) | Cloudflare Zone commercial plan |
