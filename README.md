@@ -5,6 +5,7 @@ Terraform modules to create Cloudflare Hosted zone
 [![lint](https://github.com/flaconi/terraform-cloudflare-zone/workflows/lint/badge.svg)](https://github.com/flaconi/terraform-cloudflare-zone/actions?query=workflow%3Alint)
 [![test](https://github.com/flaconi/terraform-cloudflare-zone/workflows/test/badge.svg)](https://github.com/flaconi/terraform-cloudflare-zone/actions?query=workflow%3Atest)
 [![Tag](https://img.shields.io/github/tag/flaconi/terraform-cloudflare-zone.svg)](https://github.com/flaconi/terraform-cloudflare-zone/releases)
+[![Terraform](https://img.shields.io/badge/Terraform--registry-cloudflare--zone-brightgreen.svg)](https://registry.terraform.io/modules/flaconi/zone/cloudflare/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <!-- TFDOCS_HEADER_START -->
