@@ -156,46 +156,6 @@ object({
 
 Default: `{}`
 
-### <a name="input_http_config_settings"></a> [http\_config\_settings](#input\_http\_config\_settings)
-
-Description: Cloudflare ruleset for phase http\_config\_settings. It override the zone settings per request by defining an expression.
-
-Type:
-
-```hcl
-list(object({
-    action_parameters = object({
-      polish = optional(string)
-    })
-    description = string
-    enabled     = optional(bool, true)
-    expression  = string
-  }))
-```
-
-Default: `[]`
-
-### <a name="input_http_log_custom_fields"></a> [http\_log\_custom\_fields](#input\_http\_log\_custom\_fields)
-
-Description: Cloudflare ruleset for phase http\_log\_custom\_fields.
-
-Type:
-
-```hcl
-list(object({
-    action_parameters = object({
-      request_fields  = optional(list(string))
-      response_fields = optional(list(string))
-      cookie_fields   = optional(list(string))
-    })
-    description = string
-    enabled     = optional(bool, true)
-    expression  = string
-  }))
-```
-
-Default: `[]`
-
 <!-- TFDOCS_INPUTS_END -->
 
 <!-- TFDOCS_OUTPUTS_START -->

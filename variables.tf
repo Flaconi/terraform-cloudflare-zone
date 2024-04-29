@@ -100,33 +100,3 @@ variable "bot_management" {
   })
   default = {}
 }
-
-# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset
-variable "http_config_settings" {
-  description = "Cloudflare ruleset for phase http_config_settings. It override the zone settings per request by defining an expression."
-  type = list(object({
-    action_parameters = object({
-      polish = optional(string)
-    })
-    description = string
-    enabled     = optional(bool, true)
-    expression  = string
-  }))
-  default = []
-}
-
-# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/ruleset
-variable "http_log_custom_fields" {
-  description = "Cloudflare ruleset for phase http_log_custom_fields."
-  type = list(object({
-    action_parameters = object({
-      request_fields  = optional(list(string))
-      response_fields = optional(list(string))
-      cookie_fields   = optional(list(string))
-    })
-    description = string
-    enabled     = optional(bool, true)
-    expression  = string
-  }))
-  default = []
-}
