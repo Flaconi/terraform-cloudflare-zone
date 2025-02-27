@@ -1,9 +1,3 @@
-variable "api_token" {
-  description = "The Cloudflare API token."
-  type        = string
-  sensitive   = true
-}
-
 variable "account_name" {
   description = "Account Name to manage the zone resource in. `Account Settings:Read` permission is required."
   type        = string
