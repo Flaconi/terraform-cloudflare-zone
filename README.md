@@ -100,7 +100,6 @@ Default: `{}`
 | <a name="output_account_id"></a> [account\_id](#output\_account\_id) | Cloudflare Account ID |
 | <a name="output_id"></a> [id](#output\_id) | Cloudflare Zone ID |
 | <a name="output_name_servers"></a> [name\_servers](#output\_name\_servers) | Cloudflare Zone Name Servers |
-| <a name="output_plan"></a> [plan](#output\_plan) | Cloudflare Zone commercial plan |
 | <a name="output_settings"></a> [settings](#output\_settings) | Cloudflare Zone Settings |
 | <a name="output_status"></a> [status](#output\_status) | Cloudflare Zone Status |
 
