@@ -18,7 +18,7 @@ Terraform modules to create Cloudflare Hosted zone
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 4.52.0 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | ~> 5.8 |
 
 <!-- TFDOCS_PROVIDER_END -->
 
@@ -28,7 +28,7 @@ Terraform modules to create Cloudflare Hosted zone
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | 4.52.0 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.8 |
 
 <!-- TFDOCS_REQUIREMENTS_END -->
 
@@ -53,85 +53,19 @@ Type: `string`
 
 The following input variables are optional (have default values):
 
-### <a name="input_settings_override"></a> [settings\_override](#input\_settings\_override)
+### <a name="input_type"></a> [type](#input\_type)
 
-Description: Various values which customizes Cloudflare zone settings. Note that some settings are only available on certain plans.
+Description: A full zone implies that DNS is hosted with Cloudflare. A partial zone is typically a partner-hosted zone or a CNAME setup.
 
-Type:
+Type: `string`
 
-```hcl
-object({
-    always_online             = optional(string)
-    always_use_https          = optional(string)
-    automatic_https_rewrites  = optional(string)
-    binary_ast                = optional(string)
-    brotli                    = optional(string)
-    browser_cache_ttl         = optional(number)
-    browser_check             = optional(string)
-    cache_level               = optional(string)
-    challenge_ttl             = optional(number)
-    ciphers                   = optional(list(string))
-    cname_flattening          = optional(string)
-    development_mode          = optional(string)
-    early_hints               = optional(string)
-    email_obfuscation         = optional(string)
-    filter_logs_to_cloudflare = optional(string)
-    fonts                     = optional(string)
-    h2_prioritization         = optional(string)
-    hotlink_protection        = optional(string)
-    http2                     = optional(string)
-    http3                     = optional(string)
-    image_resizing            = optional(string)
-    ip_geolocation            = optional(string)
-    ipv6                      = optional(string)
-    log_to_cloudflare         = optional(string)
-    max_upload                = optional(number)
-    min_tls_version           = optional(string)
-    minify = optional(object({
-      css  = optional(string, "off")
-      html = optional(string, "off")
-      js   = optional(string, "off")
-    }))
-    mirage = optional(string)
-    mobile_redirect = optional(object({
-      mobile_subdomain = optional(string, "")
-      status           = optional(string, "off")
-      strip_uri        = optional(string, false)
-    }))
-    opportunistic_encryption    = optional(string)
-    opportunistic_onion         = optional(string)
-    orange_to_orange            = optional(string)
-    origin_error_page_pass_thru = optional(string)
-    origin_max_http_version     = optional(string)
-    polish                      = optional(string)
-    prefetch_preload            = optional(string)
-    privacy_pass                = optional(string)
-    proxy_read_timeout          = optional(string)
-    pseudo_ipv4                 = optional(string)
-    response_buffering          = optional(string)
-    rocket_loader               = optional(string)
-    security_header = optional(object({
-      enabled            = optional(bool)
-      include_subdomains = optional(bool)
-      max_age            = optional(number)
-      nosniff            = optional(bool)
-      preload            = optional(bool)
-    }))
-    security_level              = optional(string)
-    server_side_exclude         = optional(string)
-    sort_query_string_for_cache = optional(string)
-    ssl                         = optional(string)
-    tls_1_3                     = optional(string)
-    tls_client_auth             = optional(string)
-    true_client_ip_header       = optional(string)
-    universal_ssl               = optional(string)
-    visitor_ip                  = optional(string)
-    waf                         = optional(string)
-    webp                        = optional(string)
-    websockets                  = optional(string)
-    zero_rtt                    = optional(string)
-  })
-```
+Default: `"full"`
+
+### <a name="input_settings"></a> [settings](#input\_settings)
+
+Description: Various setting\_id/value pairs which customizes Cloudflare zone settings. Note that some settings are only available on certain plans.
+
+Type: `map(any)`
 
 Default: `{}`
 
@@ -160,7 +94,6 @@ Default: `{}`
 | <a name="output_account_id"></a> [account\_id](#output\_account\_id) | Cloudflare Account ID |
 | <a name="output_id"></a> [id](#output\_id) | Cloudflare Zone ID |
 | <a name="output_name_servers"></a> [name\_servers](#output\_name\_servers) | Cloudflare Zone Name Servers |
-| <a name="output_plan"></a> [plan](#output\_plan) | Cloudflare Zone commercial plan |
 | <a name="output_settings"></a> [settings](#output\_settings) | Cloudflare Zone Settings |
 | <a name="output_status"></a> [status](#output\_status) | Cloudflare Zone Status |
 
