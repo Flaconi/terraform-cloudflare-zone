@@ -1,6 +1,6 @@
 output "account_id" {
   description = "Cloudflare Account ID"
-  value       = data.cloudflare_accounts.this.accounts[0].id
+  value       = data.cloudflare_accounts.this.result[0].id
 }
 
 output "id" {
@@ -18,12 +18,7 @@ output "status" {
   value       = cloudflare_zone.this.status
 }
 
-output "plan" {
-  description = "Cloudflare Zone commercial plan"
-  value       = cloudflare_zone.this.plan
-}
-
 output "settings" {
   description = "Cloudflare Zone Settings"
-  value       = cloudflare_zone_settings_override.this
+  value       = cloudflare_zone_setting.this
 }
