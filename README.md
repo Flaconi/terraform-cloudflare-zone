@@ -37,12 +37,6 @@ Terraform modules to create Cloudflare Hosted zone
 
 The following input variables are required:
 
-### <a name="input_api_token"></a> [api\_token](#input\_api\_token)
-
-Description: The Cloudflare API token.
-
-Type: `string`
-
 ### <a name="input_account_name"></a> [account\_name](#input\_account\_name)
 
 Description: Account Name to manage the zone resource in. `Account Settings:Read` permission is required.
