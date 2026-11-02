@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: terraform-cloudflare-zone
+  description: >
+    This module will create Cloudflare Hosted Zone
+  annotations:
+    github.com/project-slug: Flaconi/terraform-cloudflare-zone
+  tags:
+    - terraform
+    - cloudflare
+    - dns
+
+spec:
+  type: library
+  lifecycle: production
+  owner: group:platform
+  providesApis: []
